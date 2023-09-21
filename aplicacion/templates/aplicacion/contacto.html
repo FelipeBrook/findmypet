@@ -1,0 +1,38 @@
+{% extends "aplicacion/base.html" %}
+{% load static %}
+
+{% block contenido %}
+{% load crispy_forms_tags %}
+
+<div class="container mt-5">
+    <br>
+    <h2>Contactanos!</h2>
+    <br>
+    <form action="" class="formulario_contacto" method="post">
+        {% csrf_token %}
+
+        {{ form|crispy }}
+
+        <br>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+    </form>
+</div>
+
+<style>
+    /* Estilos personalizados para el formulario */
+    .formulario_contacto {
+        max-width: 400px;
+        /* Ancho máximo del formulario */
+        margin: 50 auto;
+        /* Centrar el formulario horizontalmente */
+        padding: 20px;
+        /* Espaciado interno alrededor del formulario */
+        border: 1px solid #ccc;
+        /* Borde alrededor del formulario */
+        border-radius: 5px;
+        /* Bordes redondeados */
+    }
+</style>
+{% endblock %}
