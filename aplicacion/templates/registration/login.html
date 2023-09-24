@@ -3,6 +3,7 @@
 
 {%block login%}
 
+
 <head>
 
     <meta charset="utf-8">
@@ -47,15 +48,17 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4" style="font-size: 36px;">¡Bienvenido!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form method="post">
+
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                            {%csrf_token%}
+                                            <input type="username" name="username"
+                                                class="form-control form-control-user" id=""
+                                                aria-describedby="emailHelp"
+                                                placeholder="Introduzca su nombre de usuario...">
+
+                                            <input type="password" name="password"
+                                                class="form-control form-control-user" id="" placeholder="Contraseña">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -64,9 +67,9 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                            Iniciar Sesion
+                                        </button>
                                         <hr>
                                         <a href="index.html" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Iniciar con Google
@@ -80,7 +83,7 @@
                                         <a class="small" href="forgot-password.html">Olvidaste tu contraseña?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="register.html">Crea una cuenta!</a>
+                                        <a class="small" href="{% url 'register' %}">Crea una cuenta!</a>
                                     </div>
                                 </div>
                             </div>

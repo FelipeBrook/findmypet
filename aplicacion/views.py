@@ -1,11 +1,13 @@
-from django.shortcuts import render
-from .forms import CoctactoForm,petForm
+from django.shortcuts import render,redirect
+from .forms import CoctactoForm
 from django.contrib import messages
-import qrcode
-from PIL import Image
-from io import BytesIO
+from django.contrib.auth.decorators import login_required #ocultar la vista si no esta logeado
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.conf import settings
+from .forms import CustomUserCreationForm
+from django.contrib.auth import authenticate, login
+from .forms import LoginForm
+from django.contrib.auth import logout
 
 # Create your views here.
 
@@ -15,6 +17,9 @@ def contacto(request):
     return render(request, "aplicacion/contacto.html")
 def login(request):
     return render(request, "aplicacion/login.html")
+@login_required
+def pet(request):
+    return render(request, "aplicacion/pet.html")
 
 def contacto(request):
     data={
@@ -31,52 +36,27 @@ def contacto(request):
             data["form"]=formulario
     return render(request, "aplicacion/contacto.html", data)
 
-def pet(request):
-    data={
-        'form':petForm()
-    }
+
+def register(request):
+    data = {
+        'form': CustomUserCreationForm()
+        }
     if request.method=='POST':
-        formulario=petForm(data=request.POST)
-        if formulario.is_valid():
-            formulario.save()
-            messages.success(request, "compañero guardado correctamente")
-           
+        user_creation_form=CustomUserCreationForm(data=request.POST)
+        if user_creation_form.is_valid():
+            user_creation_form.save()
+            messages.success(request, "Registro completado exitosamente")
+            user =authenticate(username=user_creation_form.cleaned_data["username"], password=user_creation_form.cleaned_data["password1"])
             
-        else:
-            data["form"]=formulario
-    return render(request, "aplicacion/pet.html", data)
-
-def mostrar_qr(request, pk):
-    # Obtén la mascota desde la base de datos o de donde la hayas almacenado
-    mascota = get_object_or_404(pet, pk=pk)
-
-    # Crea el contenido para el código QR con la información de la mascota
-    qr = qrcode.QRCode(
-        version=1,
-        error_correction=qrcode.constants.ERROR_CORRECT_L,
-        box_size=10,
-        border=4,
-    )
-    qr.add_data(f"Nombre: {mascota.nombre}\nEspecie: {mascota.especie}\nRaza: {mascota.raza}")
-    qr.make(fit=True)
-
-    # Crea una imagen del código QR
-    img = qr.make_image(fill_color="black", back_color="white")
-
-    # Almacena la imagen en un objeto BytesIO
-    image_io = BytesIO()
-    img.save(image_io, format='PNG')
-
-    # Crea un archivo de imagen en memoria
-    qr_image = InMemoryUploadedFile(image_io, None, f'qr_{mascota.nombre}.png', 'image/png', image_io.tell(), None)
-
-    # Guarda la imagen en el directorio de medios
-    mascota.qr_code = qr_image
-    mascota.save()
-
-    return render(request, 'mostrar_qr.html', {'mascota': mascota})
-
-
+            return redirect(to='login')
+        
+            
+        
+    return render(request, "aplicacion/register.html", data)
+  
+def exit(request):
+    logout(request)
+    return redirect('home')
 
 
 

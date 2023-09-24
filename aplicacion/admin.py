@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Contacto,Mascota,pet
+from .models import Contacto,Mascota
 
 
 

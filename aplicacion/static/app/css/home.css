@@ -526,16 +526,17 @@
   }
   
   .masthead {
-    position: relative;
+    
     width: 100%;
     height: auto;
     min-height: 35rem;
     padding: 15rem 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.534) 50%, #000000b4 100%), url("../img/fondomascota1.jpg") ;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.534) 50%, #000000b4 100%), url("../img/fondomascota2.jpg") ;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
+    background-position: center bottom; /* Mueve la imagen hacia abajo */
   }
   .masthead h1, .masthead .h1 {
     font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -617,5 +618,16 @@
     }
   }
 
-  
+  .formulario_registro {
+    max-width: 4000px;
+    /* Ancho máximo del formulario */
+    margin: 50 auto;
+    /* Centrar el formulario horizontalmente */
+    padding: 20px;
+    /* Espaciado interno alrededor del formulario */
+    border: 1px solid #ccc;
+    /* Borde alrededor del formulario */
+    border-radius: 5px;
+    /* Bordes redondeados */
+}
   

@@ -23,20 +23,6 @@ class Mascota(models.Model):
     def __str__(self):
         return self.nombre   
 
-class pet(models.Model):
-    nombre = models.CharField(max_length=50)
-    edad= models.PositiveIntegerField(max_length=2, null=True)
-    especie = models.CharField(max_length=100, null=True)
-    raza = models.CharField(max_length=50, null=True)
-    correo = models.EmailField(null=True)
-    telefono = models.CharField(max_length=10)
-    imagen = models.ImageField(upload_to="pet_photos", null=True)
-    
-
-
-    def __str__(self):
-        return self.nombre   
-
 
 
 
