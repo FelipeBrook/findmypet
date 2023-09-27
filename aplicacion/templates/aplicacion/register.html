@@ -7,19 +7,19 @@
 
 <h3>REGISTRO DE USUARIO</h3>
 
-<form action="" class="formulario_registro" method="post">
-    {%csrf_token%}
-    <div class="card mx-auto" style="width: 30rem;">
-    </div class="card-body p-0">
-    <h5 class="card-title">Complete los campos</h5>
-    {{form|crispy}}
-    <a href="{%url 'login'%}" class="card-link">Ya tengo una cuenta</a>
-    <button type="submit" class="btn btn-success">Registrarse</button>
-    </div>
-    </div>
-</form>
 
-
-
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <form action="" class="formulario_registro" method="post">
+        {% csrf_token %}
+        <div class="card" style="width: 30rem;">
+            <div class="card-body p-0">
+                <h5 class="card-title text-center">Complete los campos</h5>
+                {{ form|crispy }}
+                <a href="{% url 'login' %}" class="card-link text-center d-block">Ya tengo una cuenta</a>
+                <button type="submit" class="btn btn-success btn-block">Registrarse</button>
+            </div>
+        </div>
+    </form>
+</div>
 
 {%endblock%}

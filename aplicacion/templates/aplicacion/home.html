@@ -12,6 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" href="{%static 'app/css/home.css'%}">
+
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
@@ -38,16 +39,17 @@
                             son pedacitos
                             de amor que llenan nuestros corazones" 🐾❤️</h2>
                         <a class="btn btn-primary" href="{% url 'login' %}">Ingresar</a>
+
                     </div>
                 </div>
             </div>
         </div>
         <!-- About-->
         <!-- Comunidad o Servicios -->
-        <section class="page-section" id="services">
+        <section class="contenedor bg-white " id="services">
             <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Servicios</h2>
+                <div class="text-center mastheader">
+                    <h1 class="section-heading text-uppercase">Comunidad</h1>
 
                 </div>
                 <div class="row text-center">
@@ -56,36 +58,51 @@
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">Lugares para pasear</h4>
-
-                        <img class="img-fluid" src="{% static 'app/img/galeria3.webp' %}" alt="loginpug">
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima
-                            maxime
-                            quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                        </h4>
+                        <figure>
+                            <img src="{% static 'app/img/perros-preview.jpg' %}" alt="loginpug">
+                            <div class="capa">
+                                <h3>Lugares para pasear</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, vero!</p>
+                            </div>
                     </div>
+                    </figure>
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">Alimentos</h4>
-                        <img class="img-fluid" src="{% static 'app/img/galeria2.webp' %}" alt="loginpug">
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime
-                            quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                        <figure>
+                            <img src="{% static 'app/img/gatos-comiendo.png' %}" alt="loginpug">
+                            <div class="capa">
+                                <h3>Alimentos</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, vero!</p>
+                            </div>
                     </div>
+                    </figure>
                     <div class="col-md-4 ">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">Preguntas</h4>
-                        <img class="img-fluid" src="{% static 'app/img/galeria1.webp' %}" alt="loginpug">
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima
-                            maxime
-                            quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                        <figure>
+                            <img src="{% static 'app/img/perrojapones.jpg' %}" alt="Imagen Clickeable"
+                                alt="perrojapones">
+                            <div class="capa">
+                                <h3>Preguntas</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, vero!</p>
+                                <br>
+                                <br>
+
+
+                            </div>
+
+                        </figure>
+
                     </div>
 
                 </div>
+
             </div>
         </section>
         <!-- Signup-->
@@ -140,26 +157,35 @@
                 </div>
             </div>
         </section>
-        <!-- Clients-->
-        <div class="py-5">
-            <div class="container">
+        <!-- MARCAS-->
+        <div class="py-5 bg-white">
+            <div class="container ">
                 <div class="row align-items-center">
                     <div class="col-md-2 col-sm-6 my-3">
                         <a href="#!"><img class="img-fluid img-brand d-block mx-auto"
-                                src="{% static 'app/img/microsoft.svg' %}" alt="..." aria-label="Microsoft Logo" /></a>
+                                src="{% static 'app/img/MAZURI.png' %}" alt="..." aria-label="Microsoft Logo" /></a>
                     </div>
                     <div class="col-md-2 col-sm-6 my-3">
                         <a href="#!"><img class="img-fluid img-brand d-block mx-auto"
-                                src="{% static 'app/img/google.svg' %}" alt="..." aria-label="Google Logo" /></a>
+                                src="{% static 'app/img/ROYAL-CANIN.png' %}" alt="..." aria-label="Google Logo" /></a>
                     </div>
                     <div class="col-md-2 col-sm-6 my-3">
                         <a href="#!"><img class="img-fluid img-brand d-block mx-auto"
-                                src="{% static 'app/img/facebook.svg' %}" alt="..." aria-label="Facebook Logo" /></a>
+                                src="{% static 'app/img/PRO-PLAN.png' %}" alt="..." aria-label="Facebook Logo" /></a>
                     </div>
                     <div class="col-md-2 col-sm-3 my-3">
                         <a href="#!"><img class="img-fluid img-brand d-block mx-auto"
-                                src="{% static 'app/img/ibm.svg' %}" alt="..." aria-label="IBM Logo" /></a>
+                                src="{% static 'app/img/BRAVERY.png' %}" alt="..." aria-label="IBM Logo" /></a>
                     </div>
+                    <div class="col-md-2 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto"
+                                src="{% static 'app/img/HAGEN.png' %}" alt="..." aria-label="Google Logo" /></a>
+                    </div>
+                    <div class="col-md-2 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto"
+                                src="{% static 'app/img/HAPPY-HOME.png' %}" alt="..." aria-label="Google Logo" /></a>
+                    </div>
+
                 </div>
             </div>
         </div>
