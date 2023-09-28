@@ -52,7 +52,7 @@ def register(request):
         
             
         
-    return render(request, "aplicacion/register.html", data)
+    return render(request, "registration/register.html", data)
   
 def exit(request):
     logout(request)
