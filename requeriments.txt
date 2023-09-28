@@ -1,4 +1,5 @@
 django-crispy-forms
 pillow
 django-admin-interface
+crispy-bootstrap4
 
