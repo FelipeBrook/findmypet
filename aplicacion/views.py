@@ -5,8 +5,8 @@ from django.contrib.auth.decorators import login_required #ocultar la vista si n
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.conf import settings
 from .forms import CustomUserCreationForm
-from django.contrib.auth import authenticate, login
-from .forms import LoginForm
+# from django.contrib.auth import authenticate, login
+# from .forms import LoginForm
 from django.contrib.auth import logout
 
 # Create your views here.
@@ -17,6 +17,10 @@ def contacto(request):
     return render(request, "aplicacion/contacto.html")
 def login(request):
     return render(request, "aplicacion/login.html")
+# def register(request):
+#     return render(request, "aplicacion/register.html")
+def signup_view(request):
+    return render(request, 'account/signup.html')
 @login_required
 def pet(request):
     return render(request, "aplicacion/pet.html")
@@ -37,22 +41,22 @@ def contacto(request):
     return render(request, "aplicacion/contacto.html", data)
 
 
-def register(request):
-    data = {
-        'form': CustomUserCreationForm()
-        }
-    if request.method=='POST':
-        user_creation_form=CustomUserCreationForm(data=request.POST)
-        if user_creation_form.is_valid():
-            user_creation_form.save()
-            messages.success(request, "Registro completado exitosamente")
-            user =authenticate(username=user_creation_form.cleaned_data["username"], password=user_creation_form.cleaned_data["password1"])
+# def register(request):
+#     data = {
+#         'form': CustomUserCreationForm()
+#         }
+#     if request.method=='POST':
+#         user_creation_form=CustomUserCreationForm(data=request.POST)
+#         if user_creation_form.is_valid():
+#             user_creation_form.save()
+#             messages.success(request, "Registro completado exitosamente")
+#             user =authenticate(username=user_creation_form.cleaned_data["username"], password=user_creation_form.cleaned_data["password1"])
             
-            return redirect(to='login')
+#             return redirect(to='login')
         
             
         
-    return render(request, "aplicacion/register.html", data)
+#     return render(request, "aplicacion/register.html", data)
   
 def exit(request):
     logout(request)

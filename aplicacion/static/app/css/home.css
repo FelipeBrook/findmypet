@@ -30,10 +30,7 @@
     
     
   }
-  .tituloco{
-    margin-top: 30rem;
-    background-color: red;
-  }
+ 
   @media (min-width: 768px) {
     .masthead h1, .masthead .h1 {
       font-size: 4rem;
@@ -180,6 +177,9 @@
   letter-spacing: 0.8rem;
   color: #000;
 }
+
+/* Marcas */
+
 
 
 
