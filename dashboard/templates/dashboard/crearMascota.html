@@ -1,0 +1,196 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+
+{% block contenido %}
+<main>
+    <h1>Mi Perfil</h1>
+    
+
+    <!-- New Users Section -->
+    <div class="new-users">
+        <h2>Nueva Mascota</h2>
+        <div class="user-list">
+            <div class="user2">
+                
+                
+
+                <form method="post" enctype="multipart/form-data" action="{{urlPost}}" id="mascota-form">
+                    {% csrf_token %}
+                    <label for="id_nombre">Nombre:</label>
+                    <input type="text" name="nombre" maxlength="100" required id="id_nombre">
+                    <label for="id_tipo">Tipo:</label>
+                    <select name="tipo" id="id_tipo" class="select-tipo">
+                        <option value selected>--------</option>
+                        
+                        {% for t in tipo %}
+                            <option value="{{t.id}}">{{t.nombre}}</option>
+                        {% endfor %}
+                            
+                    </select>
+                    <label for="id_raza">Raza:</label>
+                    <select name="raza" id="id_raza" class="select-raza" required>
+
+                    </select>
+                    <label for="id_edad">Edad (Años):</label>
+                    <input type="number" name="edad" min="0" required id="id_edad">
+                    <label for="id_imagen">Imagen:</label>
+                    <br>
+                    <input type="file" name="imagen" accept="image/*" required id="id_imagen">
+                    <br>
+                    <label for="id_descripcion">Descripción:</label>
+                    <textarea name="descripcion" id="id_descripcion" cols="30" rows="10"></textarea>
+                    <label for="id_detalles">Detalles Mascota:</label>
+                    <textarea name="detalles" id="id_detalles" cols="30" rows="10"></textarea>
+                    
+                    <div class="buttons">
+                        <button type="submit" class="edit-button">Guardar</button>
+                    </div>
+                </form>
+
+
+                
+            </div>
+            
+        </div>
+    </div>
+    <!-- End of New Users Section -->
+
+    
+
+</main>
+{% endblock contenido %}
+
+
+{% block derecha %}
+<div class="reminders">
+    <div class="header">
+        <h2>Reminders</h2>
+        <span class="material-icons-sharp">
+            notifications_none
+        </span>
+    </div>
+
+    <div class="notification">
+        <div class="icon">
+            <span class="material-icons-sharp">
+                volume_up
+            </span>
+        </div>
+        <div class="content">
+            <div class="info">
+                <h3>Workshop</h3>
+                <small class="text_muted">
+                    08:00 AM - 12:00 PM
+                </small>
+            </div>
+            
+            <span class="material-icons-sharp">
+                more_vert
+            </span>
+        </div>
+    </div>
+
+    <div class="notification deactive">
+        <div class="icon">
+            <span class="material-icons-sharp">
+                edit
+            </span>
+        </div>
+        <div class="content">
+            <div class="info">
+                <h3>Workshop</h3>
+                <small class="text_muted">
+                    08:00 AM - 12:00 PM
+                </small>
+            </div>
+            <span class="material-icons-sharp">
+                more_vert
+            </span>
+        </div>
+    </div>
+
+    <div class="notification add-reminder">
+        <div>
+            <span class="material-icons-sharp">
+                add
+            </span>
+            <h3>Add Reminder</h3>
+        </div>
+    </div>
+
+</div>
+{% endblock derecha %}
+
+
+
+{% block js %}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.select-tipo').change(function(){
+                console.log('funca');
+                var tipoId = $(this).val();
+                var razaSelect = $(this).closest('form').find('.select-raza');
+                razaSelect.empty();
+
+                var apiUrl = "{{urlRaza}}";
+                apiUrl += "?tipo=" + tipoId;
+                $.ajax({
+                    url: apiUrl,
+                    method: 'GET',
+                    success: function(data){
+                        console.log(data);
+                        $.each(data, function(key, value) {
+                            var selectdata = data[key];
+                            var selectId = selectdata.id;
+                            var seletName = selectdata.nombre;
+                            console.log(value);
+                            razaSelect.append($('<option>', {
+                                value: value.id,
+                                text: value.nombre
+                            }));
+                        });   
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#mascota-form').submit(function(e) {
+                e.preventDefault();  // Evitar que el formulario se envíe automáticamente
+        
+                var formData = new FormData(this); // Serializar los datos del formulario
+        
+                $.ajax({
+                    url: $(this).attr('action'),  // Obtener la URL del formulario
+                    method: $(this).attr('method'),  // Obtener el método del formulario (POST en este caso)
+                    data: formData,
+                    contentType: false,  // Importante: no establezcas contentType y processData a true
+                    processData: false,  // Esto permite que FormData maneje la carga de archivos
+            
+                    success: function(data) {
+                        // Realizar la redirección en el cliente a la página 'base'
+                        Swal.fire({
+                            "title": "Felicitaciones",
+                            "text": "Mascota creada",
+                            "icon": "success"
+                        })
+                        .then(function(result){
+
+                            window.location.href = '/dash/base/'; // Reemplaza con la URL correcta de la página 'base'
+                        })
+                    },
+                    error: function() {
+                        // Manejar errores si es necesario
+                    }
+                });
+            });
+        }); 
+    </script>
+    
+{% endblock js %}
+    

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'aplicacion',
     'dashboard',
+    'rest_framework',
     'crispy_forms',
     'crispy_bootstrap4',
     'colorfield'
