@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("aplicacion.urls")),
+    path('dash/', include(('dashboard.urls','dash'), namespace='dash')),
     path("accounts/", include("django.contrib.auth.urls")),
 ]
 
