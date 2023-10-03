@@ -1,11 +1,8 @@
 {%extends 'aplicacion/base.html'%}
 {% load crispy_forms_tags %}
-
 {% load i18n %}
 {%load static%}
-
-{% block head_title %}{% trans "Signup" %}{% endblock head_title %}
-
+{% load account socialaccount %}
 {% block signup %}
 
 <head>
@@ -65,12 +62,29 @@
                   <br>
                   <button class="btn btn-primary primaryAction" type="submit">Registrarse</button>
                 </form>
+                </form>
+
+                <hr>
+
+                <div class="socialaccount_ballot">
+                  <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}"
+                    href="{% provider_login_url provider process=process scope=scope auth_params=auth_params %}">Iniciar
+                    sesion con Google</a>
+
+                  <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                    <i class="fab fa-facebook-f fa-fw"></i> Iniciar con Facebook
+                  </a>
+                  </form>
+                  <hr>
+
+                  <form>
 
 
+
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-      </div>
-      {% endblock%}
+        </div>
+        {% endblock%}

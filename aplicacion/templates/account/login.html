@@ -39,15 +39,6 @@
   of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
   for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
-<div class="socialaccount_ballot">
-
-  <ul class="socialaccount_providers">
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-  </ul>
-
-  <div class="login-or">{% trans 'or' %}</div>
-
-</div>
 
 {% include "socialaccount/snippets/login_extra.html" %}
 
@@ -91,25 +82,30 @@
                 </form>
 
                 <hr>
-                <a href="index.html" class="btn btn-google btn-user btn-block">
-                  <i class="fab fa-google fa-fw"></i> Iniciar con Google
-                </a>
-                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                  <i class="fab fa-facebook-f fa-fw"></i> Iniciar con Facebook
-                </a>
-                </form>
-                <hr>
+
+                <div class="socialaccount_ballot">
+                  <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}"
+                    href="{% provider_login_url provider process=process scope=scope auth_params=auth_params %}">Iniciar
+                    sesion con Google</a>
+
+                  <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                    <i class="fab fa-facebook-f fa-fw"></i> Iniciar con Facebook
+                  </a>
+                  </form>
+                  <hr>
+
+                  <form>
 
 
+                </div>
               </div>
             </div>
           </div>
         </div>
+
       </div>
 
     </div>
 
   </div>
-
-</div>
-{% endblock login %}
+  {% endblock login %}
