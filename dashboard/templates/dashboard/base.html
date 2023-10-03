@@ -7,6 +7,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'dashboard/assets3/css/style.css' %}">
     
+    
+        
+    
     <title>Responsive Dashboard Design #1 | AsmrProg</title>
 </head>
 <body>
@@ -160,7 +163,7 @@
                     {% if mascotas %}
                         
                         {% for m in mascotas %}
-                            <a href="#">
+                            <a href="{% url 'dash:mascota' m.id %}">
                                 <div class="user">
                                     <img src="{{m.imagen.url}}">
                                     <h2>{{m.nombre}}</h2>

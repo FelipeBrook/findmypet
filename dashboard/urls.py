@@ -14,7 +14,7 @@ urlpatterns = [
 
     path('api/', include(router.urls)),
 
-    #path('mascota/', dashboard, name="mascota"),
+    path('mascota/<id>/', mascota, name="mascota"),
     path('agregarMascota/', agregar_mascota, name="agregarMascota"),
 ]
 

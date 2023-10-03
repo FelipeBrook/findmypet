@@ -1,0 +1,134 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'dashboard/assets2/css/main.css' %}" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+{% endblock head %}
+    
+
+{% block js %}
+    
+{% endblock js %}
+
+
+{% block contenido %}
+<main>
+    <h1>Mi Perfil</h1>
+    
+    {% if mascota %}
+
+    <!-- New Users Section -->
+    
+
+    <div class="container2">
+        
+        <div class="result-movie">
+          <img src="{{mascota.imagen.url}}" alt="img" class="img-movie">
+          <div class="container-info">
+            <h1>{{mascota.nombre}}</h1>
+            <div class="plot">
+                <h3>Raza:</h3>
+                <p>{{mascota.raza}}</p>
+            </div>
+            <div class="plot">
+                <h3>Tipo:</h3>
+                <p>{{mascota.tipo}}</p>
+            </div>
+            <div class="plot">
+                <h3>Edad:</h3>
+                <p>{{mascota.edad}} años</p>
+            </div>
+            <div class="plot">
+                <h3>Descripcion:</h3>
+                <p>{{mascota.descripcion}}</p>
+            </div>
+            <div class="plot">
+                <h3>Detalles:</h3>
+                <p>{{mascota.detalles}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="buttons">
+            <a href="#" class="edit-button">Editar</a>
+            <a href="#" onclick="eliminarMascota({{mascota.id}})" class="delete-button">Eliminar</a>
+        </div>
+    </div>
+    
+    <!-- End of New Users Section -->
+
+    {% endif %}
+
+</main>
+{% endblock contenido %}
+    
+
+{% block derecha %}
+
+
+<div class="reminders">
+    <div class="header">
+        <h2>Reminders</h2>
+        <span class="material-icons-sharp">
+            notifications_none
+        </span>
+    </div>
+
+    <div class="notification">
+        <div class="icon">
+            <span class="material-icons-sharp">
+                volume_up
+            </span>
+        </div>
+        <div class="content">
+            <div class="info">
+                <h3>Workshop</h3>
+                <small class="text_muted">
+                    08:00 AM - 12:00 PM
+                </small>
+            </div>
+            
+            <span class="material-icons-sharp">
+                more_vert
+            </span>
+        </div>
+    </div>
+
+    <div class="notification deactive">
+        <div class="icon">
+            <span class="material-icons-sharp">
+                edit
+            </span>
+        </div>
+        <div class="content">
+            <div class="info">
+                <h3>Workshop</h3>
+                <small class="text_muted">
+                    08:00 AM - 12:00 PM
+                </small>
+            </div>
+            <span class="material-icons-sharp">
+                more_vert
+            </span>
+        </div>
+    </div>
+
+    <div class="notification add-reminder">
+        <div>
+            <span class="material-icons-sharp">
+                add
+            </span>
+            <h3>Add Reminder</h3>
+        </div>
+    </div>
+
+</div>
+{% endblock derecha %}
+    

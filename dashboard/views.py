@@ -54,4 +54,4 @@ def mascota(request, id):
         'mascota': mascota,
         'usuario': usuario
     }
-    return render(request, 'dashboard/mascota.html', data)
+    return render(request, 'dashboard/infoMascota.html', data)
