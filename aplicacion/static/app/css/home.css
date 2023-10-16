@@ -193,6 +193,17 @@ background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, F
   color: #000;
 }
 
+
+
+.img-brand {
+  transition: transform 0.3s;
+}
+
+.img-brand:hover {
+  transform: scale(1.1);
+}
+
+
 /*Responsividad*/
 /* Estilos base para pantallas más pequeñas */
 .masthead {
@@ -244,6 +255,26 @@ background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, F
         font-size: 1.5rem; /* Ajustar el tamaño de fuente en pantallas grandes */
     }
 }
+
+@media (max-width: 768px) {
+  .contenedor {
+      height: auto; /* Ajustar la altura al contenido en pantallas pequeñas */
+  }
+
+  .contenedor figure {
+      border-radius: 0; /* Eliminar el borde redondeado en pantallas pequeñas */
+  }
+
+  .contenedor figure img {
+      transition: none; /* Eliminar la transición en pantallas pequeñas */
+      transform: none; /* Restablecer la transformación en pantallas pequeñas */
+  }
+
+  .contenedor figure .capa {
+      background: rgba(0, 103, 123, 0.7); /* Ajustar la opacidad en pantallas pequeñas */
+  }
+}
+
 
 
 

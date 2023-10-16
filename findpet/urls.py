@@ -24,6 +24,7 @@ urlpatterns = [
     path("", include("aplicacion.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
     
+    
 ]
 
 if settings.DEBUG:

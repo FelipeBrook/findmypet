@@ -1,0 +1,83 @@
+{%extends 'aplicacion/base.html'%}
+{%load static%}
+
+{%block perfil_mascota%}
+
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil_MASCOTA</title>
+    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="{%static 'app/css/perfiles.css'%}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+
+<body>
+    <section class="seccion-perfil-usuario">
+        <div class="perfil-usuario-header">
+            <div class="perfil-usuario-portada">
+                <div class="perfil-usuario-avatar">
+                    <img src="{{ mascota.imagen.url }}" alt="{{ mascota.nombre }}">
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="perfil-usuario-body">
+            <div class="perfil-usuario-bio">
+                <h3 class="titulo">{{mascota.nombre}}</h3>
+                <p class="texto">{{mascota.descripcion}}</p>
+
+            </div>
+            <div class="perfil-usuario-footer">
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-address-card" aria-hidden="true"></i> Nombre: {{mascota.nombre}}</li>
+                    <li><i class="icono fa-solid fas fa-paw"></i> Tamaño: {{mascota.tamaño}} </li>
+                    <li><i class="icono fa-solid fas fa-heart"></i></i> Edad: {{mascota.edad}}</li>
+                    <li><i class="icono fas fa-solid fa-star"></i></i>Raza: {{mascota.Raza}}</li>
+                </ul>
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-venus-mars"></i> Sexo: {{mascota.genero}}</li>
+                    <li><i class="icono fa-solid fas fa-paw "></i> Personalidad: {{mascota.personalidad}}
+                    </li>
+                    <li>
+                        <i class="icono fa-solid fas fa-exclamation" style="margin-left: 8px;"></i> Miedos:
+                        {{mascota.miedos}}
+                    </li>
+                    <li><i class="icono fa-solid fas fa-syringe"></i></i> Vacunas: {{mascota.vacunas}} </i>
+                    </li>
+                </ul>
+            </div>
+    </section>
+
+    <div class="galeria">
+        <div class="row">
+            <h2 class="d-flex justify-content-center align-items-center" style="height: 50px; ">Galeria</h2>
+            <div class="galeria">
+                <img src="{{ mascota.imagen2.url }}" alt="" class="img-galeria">
+                <img src="{{ mascota.imagen3.url }}" alt="" class="img-galeria">
+                <img src="{{ mascota.imagen4.url }}" alt="" class="img-galeria">
+                <img src="{{ mascota.imagen5.url }}" alt="" class="img-galeria">
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+
+
+</body>
+
+
+{%endblock perfil_mascota%}

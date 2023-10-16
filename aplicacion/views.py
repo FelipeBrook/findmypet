@@ -16,6 +16,12 @@ def adoptame(request):
     }
     return render(request, "aplicacion/adoptame.html", data)
 
+def perfil_mascota(request, mascota_id):
+    mascota = Mascota.objects.get(id=mascota_id)
+    return render(request, 'aplicacion/perfil_mascota.html', {'mascota': mascota})
+
+
+
 def home(request):
     return render(request, "aplicacion/home.html")
 def contacto(request):
@@ -31,12 +37,14 @@ def signup_view(request):
 @login_required
 def pet(request):
     return render(request, "aplicacion/pet.html")
-
+def perfiles(request):
+    return render(request, "aplicacion/perfiles.html")
 
   
 def exit(request):
     logout(request)
     return redirect('home')
+
 
 
 
