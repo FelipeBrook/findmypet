@@ -24,16 +24,22 @@
             <div class="perfil-usuario-portada">
                 <div class="perfil-usuario-avatar">
                     <img src="{{ mascota.imagen.url }}" alt="{{ mascota.nombre }}">
-
                 </div>
 
             </div>
         </div>
 
         <div class="perfil-usuario-body">
+            <!-- Muestra la ubicación -->
+
             <div class="perfil-usuario-bio">
                 <h3 class="titulo">{{mascota.nombre}}</h3>
                 <p class="texto">{{mascota.descripcion}}</p>
+
+                <!-- Agrega esto en tu plantilla HTML donde deseas mostrar la ubicación -->
+                <p>Ubicación de escaneo: <span id="ubicacion">{{ ubicacion }}</span></p>
+
+
 
             </div>
             <div class="perfil-usuario-footer">
@@ -68,13 +74,53 @@
 
 
 
+
+
+
+
+
+
             </div>
         </div>
     </div>
 
 
+
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+
+            navigator.geolocation.getCurrentPosition(function (position) {
+                console.log("Latitud: " + position.coords.latitude);
+                console.log("Longitud: " + position.coords.longitude);
+                // Resto de tu código
+            });
+
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var latitud = position.coords.latitude;
+                    var longitud = position.coords.longitude;
+
+                    // Genera la URL inversa para el perfil de la mascota
+                    var perfilMascotaURL = "{% url 'perfil_mascota' mascota_id=mascota.id %}";
+
+                    // Envía la ubicación al servidor Django mediante una solicitud AJAX
+                    $.ajax({
+                        type: "POST",
+                        url: perfilMascotaURL,
+                        data: { latitud: latitud, longitud: longitud },
+                        success: function (response) {
+                            console.log("Ubicación del servidor: " + response.ubicacion);
+                            document.getElementById("ubicacion").textContent = "Ubicación: " + response.ubicacion;
+                        }
+                    });
+
+                });
+            }
+        });
+    </script>
 
 
 </body>

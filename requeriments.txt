@@ -2,4 +2,6 @@ django-crispy-forms
 pillow
 django-admin-interface
 crispy-bootstrap4
-
+pip install geopy
+pip install qrcode[pil]
+pip install -U googlemaps
