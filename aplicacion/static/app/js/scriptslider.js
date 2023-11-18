@@ -3,12 +3,12 @@ const Slider = () => {
   const loadingProgress = 0;
 
   const handleClickNext = () => {
-    let items = slideRef.querySelectorAll(".item");
+    let items = slideRef.querySelectorAll(".itemslider");
     slideRef.appendChild(items[0]);
   };
 
   const handleClickPrev = () => {
-    let items = slideRef.querySelectorAll(".item");
+    let items = slideRef.querySelectorAll(".itemslider");
     slideRef.prepend(items[items.length - 1]);
   };
 
@@ -23,7 +23,7 @@ const Slider = () => {
     {
       id: 2,
       imgUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/b/ba/Parque_Araucano_16.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/ba/Parque_Araucano_16.jpg",
       desc: "Some beautiful moons cannot be created without getting creativity.",
       name: "PARQUE ARAUCANO",
     },
@@ -37,7 +37,6 @@ const Slider = () => {
     {
       id: 4,
       imgUrl:
-      
         "https://upload.wikimedia.org/wikipedia/commons/b/b7/Parque_In%C3%A9s_de_Su%C3%A1rez%2C_Santiago_de_Chile.jpg",
       desc: "Some beautiful moons cannot be created without getting creativity.",
       name: "PARQUE INÉS DE SUÁREZ",
@@ -59,7 +58,7 @@ const Slider = () => {
     {
       id: 7,
       imgUrl:
-      "https://chileestuyo.cl/wp-content/uploads/2021/03/Laguna-Cuellar-scaled.jpg",
+        "https://chileestuyo.cl/wp-content/uploads/2021/03/Laguna-Cuellar-scaled.jpg",
       desc: "Some beautiful moons cannot be created without getting creativity.",
       name: "CAJÓN DEL ACHIBUENO",
     },
@@ -84,18 +83,18 @@ const Slider = () => {
 
   data.forEach((item) => {
     const slideItem = document.createElement("div");
-    slideItem.classList.add("item");
+    slideItem.classList.add("itemslider");
     slideItem.style.backgroundImage = `url(${item.imgUrl})`;
 
     const content = document.createElement("div");
-    content.classList.add("content");
+    content.classList.add("contentslider");
 
     const name = document.createElement("div");
-    name.classList.add("name");
+    name.classList.add("nameslider");
     name.textContent = item.name;
 
     const des = document.createElement("div");
-    des.classList.add("des");
+    des.classList.add("desslider");
     des.textContent = item.desc;
 
     const button = document.createElement("button");
@@ -109,7 +108,7 @@ const Slider = () => {
 
     // Create the buttons div
     const buttons = document.createElement("div");
-    buttons.classList.add("buttons");
+    buttons.classList.add("buttonsslider");
 
     // Create the prev button
     const prevButton = document.createElement("button");
@@ -120,19 +119,18 @@ const Slider = () => {
     prevIcon.className = "fa fa-angle-left";
     prevButton.appendChild(prevIcon);
 
-
     // Create the next Button
     const nextButton = document.createElement("button");
     nextButton.id = "next";
     nextButton.addEventListener("click", handleClickNext);
 
-    const nextIcon =  document.createElement("i");
-    nextIcon.className ="fa fa-angle-right";
+    const nextIcon = document.createElement("i");
+    nextIcon.className = "fa fa-angle-right";
     nextButton.appendChild(nextIcon);
 
     // Append buttons to the contenedor
-    buttons.appendChild(prevButton)
-    buttons.appendChild(nextButton)
+    buttons.appendChild(prevButton);
+    buttons.appendChild(nextButton);
     container.appendChild(buttons);
   });
 

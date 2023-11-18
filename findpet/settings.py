@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     'colorfield',
-
+    'livereload',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -81,6 +81,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
+    'livereload.middleware.LiveReloadScript',
       # new
 ]
 

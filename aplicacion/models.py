@@ -30,4 +30,22 @@ class Mascota(models.Model):
 
     def __str__(self):
         return self.nombre
+    
+
+class Marca(models.Model):
+    nombre= models.CharField(max_length=50) 
+
+    def __str__(self):
+        return self.nombre
+
+class Alimentos(models.Model):
+    nombre= models.CharField(max_length=50)
+    precio = models.DecimalField(max_digits=10, decimal_places=3)  # Usamos DecimalField para los precios decimales
+    descripccion = models.TextField()
+    marca=models.ForeignKey(Marca, on_delete=models.PROTECT)
+    imagen= models.ImageField(upload_to="Alimentos", null=True)
+     
+    def __str__(self):
+        return self.nombre
+
 

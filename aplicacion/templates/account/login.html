@@ -35,9 +35,7 @@
 {% get_providers as socialaccount_providers %}
 
 {% if socialaccount_providers %}
-<p>{% blocktrans with site.name as site_name %}Please sign in with one
-  of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-  for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+
 
 
 {% include "socialaccount/snippets/login_extra.html" %}
@@ -47,10 +45,10 @@
 {% endif %}
 
 
-<div class="mt-5 container d-flex allign-content-center  justify-content-center ">
+<div class="container d-flex allign-content-center  justify-content-center ">
 
 
-  <div class="row justify-content-center">
+  <div class="row mt-5 justify-content-center">
 
     <div class="col-xl-10 col-lg-12 col-md-9">
 
@@ -58,8 +56,8 @@
         <div class="card-body p-0">
 
           <div class="row">
-
-            <div class="col-lg-6 d-none d-lg-block bg-login-image">
+            <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"> -->
+            <div class="col-lg-6 d-md-block bg-login-image">
               <img src="{% static 'app/img/doglogin.jpg' %}" alt="loginpug" class="img-fluid bg-login-image">
             </div>
             <div class="col-lg-6 ">

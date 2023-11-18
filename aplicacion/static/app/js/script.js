@@ -12,12 +12,12 @@ var swiper = new Swiper(".swiper", {
     stretch: 0,
     depth: 100,
     modifier: 2,
-    slideShadows: true
+    slideShadows: true,
   },
   spaceBetween: 60,
   loop: true,
   pagination: {
     el: ".swiper-pagination",
-    clickable: true
-  }
+    clickable: true,
+  },
 });

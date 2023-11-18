@@ -1,68 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Roboto:wght@100&@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Roboto:wght@100&@700&display=swap");
 
-
-.boton{
-    position: relative;
-    padding: 20px 50px;
-    text-decoration: none;
-    color: #fff;
-    letter-spacing: 10px;
-    text-indent: 10px;
-    z-index: 2;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
+.boton {
+  position: relative;
+  padding: 20px 50px;
+  text-decoration: none;
+  color: #fff;
+  letter-spacing: 10px;
+  text-indent: 10px;
+  z-index: 2;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
 }
-
 
 /*-----------boton 2----------*/
 
-.btn-2{
-    border: 3px solid;
+.btn-2 {
+  border: 3px solid;
 }
 
-.btn-2:hover{
-    background-color: #001a2b;
-    box-shadow: 0 0 20px #17a2ff;  
-    border-color: #17a2ff;
+.btn-2:hover {
+  background-color: #001a2b;
+  box-shadow: 0 0 20px #17a2ff;
+  border-color: #17a2ff;
 }
 
-.btn-2 span:nth-child(n){
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border: 3px solid;
-    transition: all 0.6s ease;
-    z-index: 10;
-    background-color: #fff;
-    
-
+.btn-2 span:nth-child(n) {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 3px solid;
+  transition: all 0.6s ease;
+  z-index: 10;
+  background-color: #fff;
 }
 
-.btn-2 span:nth-child(1){
-    right: 10%;
-    top: -10px;
-    
+.btn-2 span:nth-child(1) {
+  right: 10%;
+  top: -10px;
 }
 
-.btn-2 span:nth-child(2){
-    left: 10%;
-    bottom: -10px;
-    
+.btn-2 span:nth-child(2) {
+  left: 10%;
+  bottom: -10px;
 }
 
-.btn-2:hover span:nth-child(1){
-    right: 80%;
-    transform: rotate(90deg);
-    color: #17a2ff;
-    
-    
+.btn-2:hover span:nth-child(1) {
+  right: 80%;
+  transform: rotate(90deg);
+  color: #17a2ff;
 }
 
-.btn-2:hover span:nth-child(2){
-    left: 80%;
-    transform: rotate(90deg);
-    color: #17a2ff;
-    
+.btn-2:hover span:nth-child(2) {
+  left: 80%;
+  transform: rotate(90deg);
+  color: #17a2ff;
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+  .boton {
+    padding: 35px 65px;
+    font-size: 1.5rem;
+  }
+}

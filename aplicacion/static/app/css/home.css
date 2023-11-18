@@ -1,199 +1,177 @@
-
-/* Barra */
-.barra-navegacion{
-  background: #0086f3;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #00ccff, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-}
-
-
-
 /* TITULO */
-  .masthead {
-    width: 100%;
-    height: auto;
-    min-height: 35rem;
-    padding: 15rem 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.534) 50%, #000000b4 100%), url("../img/fondomascota2.jpg") ;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
-    background-position: center bottom; /* Mueve la imagen hacia abajo */
-  }
-
-
- 
-  .masthead h1, .masthead .h1 {
-    font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: 2.5rem;
-    line-height: 2.5rem;
-    margin: 40px;
-    letter-spacing: 0.8rem;
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-            background-clip: text;
-  }
-  .masthead h2, .masthead .h2 {
-    max-width: 20rem;
-    font-size: 5rem;
-    
-    
-  }
- 
-  @media (min-width: 768px) {
-    .masthead h1, .masthead .h1 {
-      font-size: 4rem;
-      line-height: 4rem;
-    }
-  }
-  @media (min-width: 992px) {
-    .masthead {
-      height: 100vh;
-      padding: 0;
-    }
-
-    .masthead h1, .masthead .h1 {
-      font-size: 6.5rem;
-      line-height: 6.5rem;
-      letter-spacing: 0.8rem;
-    }
-    .masthead h2, .masthead .h2 {
-      max-width: 30rem;
-      font-size: 1.3rem;
-      
-    }
-  }
-  /* LOGIN */ 
-  .signup-section {
-    padding: 10rem 0;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.603) 100%, rgba(0, 0, 0, 0.534) 50%, #000000b4 100%);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
-  }
-  .signup-section .form-signup input {
-    box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
-    padding: 1.25rem 2rem;
-    height: auto;
-    font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: 80%;
-    text-transform: uppercase;
-    letter-spacing: 0.15rem;
-    border: 0;
-  }
-
-  .page-section {
-    padding: 6rem 0;
-  }
-  .page-section h2.section-heading, .page-section .section-heading.h2 {
-    font-size: 2.5rem;
-    margin-top: 0;
-    margin-bottom: 1rem;
-  }
-  .page-section h3.section-subheading, .page-section .section-subheading.h3 {
-    font-size: 1rem;
-    font-weight: 400;
-    font-style: italic;
-    font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    margin-bottom: 4rem;
-  }
-  @media (min-width: 768px) {
-    section {
-      padding: 9rem 0;
-    }
-  }
-
-  .formulario_registro {
-    max-width: 4000px;
-    /* Ancho máximo del formulario */
-    margin: 50 auto;
-    /* Centrar el formulario horizontalmente */
-    padding: 20px;
-    /* Espaciado interno alrededor del formulario */
-    border: 1px solid #ccc;
-    /* Borde alrededor del formulario */
-    border-radius: 5px;
-    /* Bordes redondeados */
+.masthead {
+  width: 100%;
+  height: 100vh;
+  padding: 10vh 0;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 100%,
+      rgba(0, 0, 0, 0.534) 50%,
+      #000000b4 100%
+    ),
+    url("../img/fondomascota2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  background-position: center bottom; /* Mueve la imagen hacia abajo */
 }
 
-.contenedor{
+.masthead h1,
+.masthead .h1 {
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 4.5rem;
+  margin-top: 10vh;
+  letter-spacing: 0.8rem;
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.masthead h2,
+.masthead .h2 {
+  font-family: "Times New Roman", Times, serif;
+  color: #ffffffcc;
+  width: 40vw;
+  font-size: 2rem;
+  margin: 50px auto;
+}
+
+/* LOGIN */
+.signup-section {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.603) 100%,
+    rgba(0, 0, 0, 0.534) 50%,
+    #000000b4 100%
+  );
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  padding: 100px 0;
+}
+.signup-section .form-signup input {
+  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  padding: 1.25rem 2rem;
+  height: auto;
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 80%;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  border: 0;
+}
+
+.page-section {
+  padding: 6rem 0;
+}
+.page-section h2.section-heading,
+.page-section .section-heading.h2 {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.page-section h3.section-subheading,
+.page-section .section-subheading.h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin-bottom: 4rem;
+}
+
+.formulario_registro {
+  max-width: 4000px;
+  /* Ancho máximo del formulario */
+  margin: 50 auto;
+  /* Centrar el formulario horizontalmente */
+  padding: 20px;
+  /* Espaciado interno alrededor del formulario */
+  border: 1px solid #ccc;
+  /* Borde alrededor del formulario */
+  border-radius: 5px;
+  /* Bordes redondeados */
+}
+
+.contenedor {
   max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  padding: 100px;
 }
-.contenedor figure{
- position:relative;
- max-width: 100%;
+.contenedor figure {
+  position: relative;
+  max-width: 100%;
   /* height: 395px; */
   cursor: pointer;
   /* width: 395px; */
   overflow: hidden;
   border-radius: 6px;
-  box-shadow: 0px 15px 25px rgba(0,0,0,0.50);
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
 }
-.contenedor figure img{
+.contenedor figure img {
   max-width: 100%;
   width: 100%;
   height: 100%;
   transition: all 400ms ease-out;
   will-change: transform;
 }
-.contenedor figure .capa{
+.contenedor figure .capa {
   position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,103,123,0.7);
+  background: rgba(0, 103, 123, 0.7);
   transition: all 400ms ease-out;
   opacity: 0;
   visibility: hidden;
- text-align: center;
+  text-align: center;
 }
 .contenedor figure:hover > .capa {
   opacity: 1;
   visibility: visible;
 }
-.contenedor figure:hover > .capa h3{
+.contenedor figure:hover > .capa h3 {
   margin-top: 70px;
   margin-bottom: 15px;
 }
-.contenedor figure:hover > img{
+.contenedor figure:hover > img {
   transform: scale(1.3);
 }
-.contenedor figure .capa h3{
+.contenedor figure .capa h3 {
   color: #fff;
   font-weight: 400;
   margin-bottom: 120px;
   transition: all 400ms ease-out;
-   margin-top: 30px;
+  margin-top: 30px;
 }
-.contenedor figure .capa p{
+.contenedor figure .capa p {
   color: #fff;
   font-size: 15px;
   line-height: 1.5;
   width: 100%;
   max-width: 220px;
   margin: auto;
-}  
+}
 
-
-
-.mastheader h1, .mastheader .h1 {
-  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+.mastheader h1,
+.mastheader .h1 {
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 2.5rem;
   line-height: 2.5rem;
   height: 100px;
   letter-spacing: 0.8rem;
   color: #000;
 }
-
-
 
 .img-brand {
   transition: transform 0.3s;
@@ -203,78 +181,35 @@ background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, F
   transform: scale(1.1);
 }
 
-
 /*Responsividad*/
-/* Estilos base para pantallas más pequeñas */
-.masthead {
-    min-height: 25rem; /* Reducir el alto del encabezado en pantallas pequeñas */
-    padding: 10rem 0; /* Reducir el padding en pantallas pequeñas */
-}
-
-.masthead h1, .masthead .h1 {
-    font-size: 2rem; /* Reducir el tamaño de fuente en pantallas pequeñas */
-    line-height: 2rem;
-    margin: 20px;
-    letter-spacing: 0.4rem; /* Reducir el espaciado de letras en pantallas pequeñas */
-}
-
-.masthead h2, .masthead .h2 {
-    font-size: 3rem; /* Reducir el tamaño de fuente en pantallas pequeñas */
-    max-width: 15rem; /* Reducir el ancho máximo en pantallas pequeñas */
-}
-
-/* Estilos para pantallas medianas */
-@media (min-width: 768px) {
-    .masthead {
-        min-height: 35rem; /* Ajustar el alto del encabezado en pantallas medianas */
-        padding: 15rem 0; /* Ajustar el padding en pantallas medianas */
-    }
-
-    .masthead h1, .masthead .h1 {
-        font-size: 3rem; /* Ajustar el tamaño de fuente en pantallas medianas */
-        line-height: 3rem;
-        letter-spacing: 0.6rem; /* Ajustar el espaciado de letras en pantallas medianas */
-    }
-}
-
-/* Estilos para pantallas grandes */
-@media (min-width: 992px) {
-    .masthead {
-        height: 100vh; /* Utilizar el 100% del alto de la pantalla en pantallas grandes */
-        padding: 0; /* Eliminar el padding en pantallas grandes */
-    }
-
-    .masthead h1, .masthead .h1 {
-        font-size: 4rem; /* Ajustar el tamaño de fuente en pantallas grandes */
-        line-height: 4rem;
-        letter-spacing: 0.8rem; /* Ajustar el espaciado de letras en pantallas grandes */
-    }
-
-    .masthead h2, .masthead .h2 {
-        max-width: 30rem; /* Ajustar el ancho máximo en pantallas grandes */
-        font-size: 1.5rem; /* Ajustar el tamaño de fuente en pantallas grandes */
-    }
-}
-
-@media (max-width: 768px) {
-  .contenedor {
-      height: auto; /* Ajustar la altura al contenido en pantallas pequeñas */
+@media (min-width: 320px) and (max-width: 767px) {
+  .masthead h1,
+  .masthead .h1 {
+    font-size: 2rem;
+  }
+  .masthead h2,
+  .masthead .h2 {
+    width: 90vw;
+    font-size: 1.5rem; /* Ajustar el tamaño de fuente en pantallas grandes */
+    margin-bottom: 10vh;
   }
 
-  .contenedor figure {
-      border-radius: 0; /* Eliminar el borde redondeado en pantallas pequeñas */
+  .mastheader h1,
+  .mastheader .h1 {
+    font-size: 2rem;
   }
-
-  .contenedor figure img {
-      transition: none; /* Eliminar la transición en pantallas pequeñas */
-      transform: none; /* Restablecer la transformación en pantallas pequeñas */
-  }
-
-  .contenedor figure .capa {
-      background: rgba(0, 103, 123, 0.7); /* Ajustar la opacidad en pantallas pequeñas */
+  .masthead.bg-image {
+    background-position: 35% 0;
   }
 }
-
-
-
-
+@media (min-width: 768px) and (max-width: 1024px) {
+  .masthead h2,
+  .masthead .h2 {
+    width: 80vw;
+    font-size: 2rem; /* Ajustar el tamaño de fuente en pantallas grandes */
+    margin-bottom: 10vh;
+  }
+  .masthead.bg-image {
+    background-position: 40% 0;
+  }
+}

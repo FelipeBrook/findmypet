@@ -11,7 +11,7 @@ from geopy.geocoders import Nominatim
 import googlemaps
 from .forms import CustomUserCreationForm
 from django.contrib.auth import logout
-
+from .models import Alimentos
 
 from . models import Mascota
 
@@ -104,6 +104,10 @@ def login(request):
     return render(request, "aplicacion/login.html")
 def lugares(request):
     return render(request, "aplicacion/lugares.html")
+def ecommerce(request):
+    alimentos = Alimentos.objects.all()
+
+    return render(request, "aplicacion/ecommerce.html", {'alimentos': alimentos})
 
 def signup_view(request):
     return render(request, 'account/signup.html')
