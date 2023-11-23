@@ -11,9 +11,13 @@ from geopy.geocoders import Nominatim
 import googlemaps
 from .forms import CustomUserCreationForm
 from django.contrib.auth import logout
-from .models import Alimentos
+from .models import Producto
+from .models import Mascota
+from .Carrito import Carrito  # Importar la clase Carrito desde carrito.py
+from django.http import HttpResponseRedirect
 
-from . models import Mascota
+
+
 
 
 @login_required
@@ -104,11 +108,8 @@ def login(request):
     return render(request, "aplicacion/login.html")
 def lugares(request):
     return render(request, "aplicacion/lugares.html")
-def ecommerce(request):
-    alimentos = Alimentos.objects.all()
-
-    return render(request, "aplicacion/ecommerce.html", {'alimentos': alimentos})
-
+def sobremi(request):
+    return render(request, "aplicacion/sobremi.html")
 def signup_view(request):
     return render(request, 'account/signup.html')
 
@@ -124,9 +125,56 @@ def exit(request):
     return redirect('home')
 
 
-
 # views.py
+#ECOMMERCE
+
+def carrito(request):
+    return render(request, "aplicacion/carrito.html")
+
+def ecommerce(request):
+    productos = Producto.objects.all()
+    return render(request, "aplicacion/ecommerce.html", {'productos': productos})
 
 
+# def agregar_producto(request, producto_id):
+#     carrito = Carrito(request)
+#     producto = Producto.objects.get(id=producto_id)
+#     carrito.agregar(producto)
+#     return redirect("ecommerce")
+
+def agregar_producto(request, producto_id):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(id=producto_id)
+    carrito.agregar(producto)
+    
+    # Obtener la URL de la página anterior (URL referer)
+    redirect_to = request.META.get('HTTP_REFERER', '/')
+    
+    # Verificar la URL para decidir a dónde redirigir
+    if 'carrito' in redirect_to:
+        # Si la URL contiene 'carrito', permanecer en la página 'carrito'
+        return HttpResponseRedirect(redirect_to)
+    elif 'ecommerce' in redirect_to:
+        # Si la URL contiene 'ecommerce', permanecer en la página 'ecommerce'
+        return HttpResponseRedirect(redirect_to)
+
+
+
+def eliminar_producto(request, producto_id):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(id=producto_id)
+    carrito.eliminar(producto)
+    return redirect("carrito")
+
+def restar_producto(request, producto_id):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(id=producto_id)
+    carrito.restar(producto)
+    return redirect("carrito")
+
+def limpiar_carrito(request):
+    carrito = Carrito(request)
+    carrito.limpiar()
+    return redirect("carrito")
 
 

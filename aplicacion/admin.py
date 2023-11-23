@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Mascota, Raza, Marca, Alimentos
+from .models import Mascota, Raza, Marca, Producto
 
 
 
@@ -18,4 +18,4 @@ from .models import Mascota, Raza, Marca, Alimentos
 admin.site.register(Mascota)
 admin.site.register(Raza)
 admin.site.register(Marca)
-admin.site.register(Alimentos)
+admin.site.register(Producto)

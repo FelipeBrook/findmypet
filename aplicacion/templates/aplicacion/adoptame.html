@@ -14,6 +14,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" href="{%static 'app/css/mascotas.css'%}">
+    <!-- <link rel="stylesheet" href="{%static 'app/css/adoptame.css'%}"> -->
 
 
     <!-- Favicon-->
@@ -25,6 +26,9 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
 
+
+
+
     <title>Adoptame</title>
 
 
@@ -32,8 +36,9 @@
 </head>
 
 <body>
-    <div class="banner">
-        <h1>¡Adóptame!</h1>
+    <div class="banneradoptame">
+        <!-- <img src="{% static 'app/img/fondomascota1.jpg' %}" alt="Imagen Clickeable" alt="perrojapones"> -->
+        <h1>¡Adopta, no compres!</h1>
     </div>
 
 
@@ -45,7 +50,7 @@
                     <img src="{{ p.imagen.url }}" class="img-card img-fluid" alt="{{ p.nombre }}">
                     <div class="contenido-card">
                         <h2 class="card-title">{{ p.nombre }}</h2>
-                        <a href="{% url 'perfil_mascota' mascota_id=p.id %}" class="btn btn-primary">Adoptar</a>
+                        <a href="{% url 'perfil_mascota' mascota_id=p.id %}" class="section2_btn btn22">Adoptar</a>
 
                     </div>
                 </div>
@@ -53,9 +58,52 @@
             {% endfor %}
         </div>
     </div>
+
+    <!-- <div class="container">
+        <div class="row">
+            {% for p in mascotas %}
+            <div class="col-lg-4">
+                <div class="card p-0">
+                    <div class="card-image">
+                        <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}">
+                    </div>
+                    <div class="card-content d-flex flex-column align-items-center">
+                        <h4 class="pt-2">{{ p.nombre }}</h4>
+                        <h5>{{ p.edad}}</h5>
+                        <a href="{% url 'perfil_mascota' mascota_id=p.id %}" class="btn btn-primary">Adoptar</a>
+
+                        <ul class="social-icons d-flex justify-content-center">
+                            <li style="--i:1">
+                                <a href="#">
+                                    <span class="fab fa-facebook"></span>
+                                </a>
+                            </li>
+                            <li style="--i:2">
+                                <a href="#">
+                                    <span class="fab fa-twitter"></span>
+                                </a>
+                            </li>
+                            <li style="--i:3">
+                                <a href="#">
+                                    <span class="fab fa-instagram"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+ -->
+
+
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'aplicacion/js/miboton.js' %}"></script>
 
 </body>
 

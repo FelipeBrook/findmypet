@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -17,6 +17,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .container-mascotas:hover {
   background-color: #f9f4fc;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
@@ -36,11 +37,21 @@ body {
   overflow: hidden;
 }
 
-.banner h1 {
-  font-size: 80px;
+.banneradoptame {
+  background-color: #ccc4c438;
+  backdrop-filter: blur(7px);
+  text-align: center;
+  padding: 0px;
+}
+
+.banneradoptame h1 {
+  color: #000000;
+  font-size: 36px;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: bold;
   padding-top: 100px;
   text-align: center;
-  text-transform: uppercase;
 }
 
 .content h1,
@@ -78,8 +89,16 @@ a {
 }
 
 .card .contenido-card h2 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+  font-weight: 500;
   color: #ffffff;
-  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+
+  transition-delay: 0.2s;
 }
 .card .contenido-card p {
   line-height: 1.8;
@@ -92,16 +111,19 @@ a {
   padding: 10px;
   margin-top: 10px;
   text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bolder;
   color: rgb(255, 255, 255);
-  border: 1px solid #2fb4cc;
-  font-weight: bold;
-  border-radius: 4px;
-  transition: all 400ms ease;
   margin-bottom: 5px;
-}
-.card .contenido-card a:hover {
-  background: #2fb4cc;
-  color: #fff;
+  letter-spacing: 2px;
+
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .card .contenido-card {
@@ -110,9 +132,78 @@ a {
 }
 
 div .card .contenido-card {
-  width: 320px;
+  width: 100%;
   box-sizing: border-box;
   position: absolute;
   bottom: 0px;
-  background: rgb(27, 27, 27, 0.5);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* @media (max-width: 991.5px) {
+  .container {
+    margin-top: 20px;
+  }
+
+  .container .row .col-lg-4 {
+    margin: 20px 0px;
+  }
+} */
+
+/* Estilos para tamaños de pantalla pequeños (celulares) */
+@media screen and (max-width: 767px) {
+  .container-mascotas {
+    width: 100%; /* Ocupar todo el ancho disponible */
+    max-width: 100%; /* Ancho máximo del contenedor */
+    height: auto; /* Altura automática según el contenido */
+    margin: 10px; /* Reducir el margen */
+  }
+
+  /* Otros estilos que desees modificar para dispositivos pequeños */
+  .banneradoptame h1 {
+    font-size: 40px; /* Reducir el tamaño del texto */
+    padding-top: 50px; /* Ajustar el espaciado superior */
+  }
+
+  .card {
+    margin: 10px; /* Reducir el margen */
+  }
+
+  .card .contenido-card {
+    padding: 10px; /* Reducir el relleno */
+  }
+
+  .img-card {
+    height: auto; /* Altura automática según el contenido */
+    width: 100%; /* Ocupar todo el ancho disponible */
+  }
+}
+
+/* Estilos para tablets y dispositivos medianos */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* Agregar estilos específicos para tablets si es necesario */
+}
+
+/* Estilos para pantallas más grandes (computadoras de escritorio, laptops, etc.) */
+@media screen and (min-width: 1024px) {
+  /* Agregar estilos específicos para pantallas grandes si es necesario */
+}
+
+.btn22 {
+  background: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.btn22:hover {
+  background: #000000;
+  color: #fff;
+}
+
+.section2_btn {
+  border-radius: 35px;
+  padding: 10px 12px;
+  width: 100%;
+  height: 52px;
+  color: #fff;
+  font-size: 16px;
 }

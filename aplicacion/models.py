@@ -1,4 +1,8 @@
+from typing import Any
 from django.db import models
+from django.contrib.auth.models import User
+
+
 class Raza(models.Model):
     nombre = models.CharField(max_length=50, null=True)
 
@@ -37,15 +41,26 @@ class Marca(models.Model):
 
     def __str__(self):
         return self.nombre
+    
 
-class Alimentos(models.Model):
+# CARRITO DE COMPRAS
+class Cliente(models.Model):
+    usuario= models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    nombre = models.CharField(max_length=200, null=True)
+    email= models.CharField(max_length=200, null=True)
+    def __str__(self):
+        return self.nombre
+
+
+class Producto(models.Model):
     nombre= models.CharField(max_length=50)
-    precio = models.DecimalField(max_digits=10, decimal_places=3)  # Usamos DecimalField para los precios decimales
+    precio = models.IntegerField()
     descripccion = models.TextField()
     marca=models.ForeignKey(Marca, on_delete=models.PROTECT)
     imagen= models.ImageField(upload_to="Alimentos", null=True)
      
     def __str__(self):
         return self.nombre
+
 
 

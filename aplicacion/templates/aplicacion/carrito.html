@@ -1,0 +1,99 @@
+{% extends "aplicacion/base.html" %}
+{%load static%}
+
+
+
+{% block carrito %}
+
+<!-- carrito.html -->
+
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Carrito</title>
+    <style>
+        /* Estilos para el desenfoque y fondo del encabezado */
+        .blurred-background {
+            background-color: rgba(0, 0, 0, 0.795);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-4">
+        <div class="alert alert-primary" role="alert">
+            <h2 class="text-center mb-4 blurred-background">CARRITO DE COMPRAS</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">NOMBRE</th>
+                            <th scope="col">PRECIO UNITARIO</th>
+                            <th scope="col">CANTIDAD</th>
+                            <th scope="col">TOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if request.session.carrito.items %}
+                        {% for key, value in request.session.carrito.items %}
+                        <tr>
+                            <td>{{ value.nombre }}</td>
+                            <td>$ {{ value.precio }}</td>
+                            <td>
+                                <div class="input-group">
+                                    <span class="input-group-prepend">
+                                        <a href="{% url 'Sub' value.producto_id %}" class="btn btn-dark">-</a>
+                                    </span>
+                                    <input type="text" class="form-control text-center" value="{{ value.cantidad }}"
+                                        readonly>
+                                    <span class="input-group-append">
+                                        <a href="{% url 'Add' value.producto_id %}" class="btn btn-dark">+</a>
+                                    </span>
+                                </div>
+                            </td>
+                            <td>$ {{ value.acumulado }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% else %}
+                        <tr>
+                            <td colspan="4">
+                                <div class="alert alert-danger text-center">Sin Productos</div>
+                            </td>
+                        </tr>
+                        {% endif %}
+                        <tr>
+                            <td colspan="3" class="font-weight-bold text-right">Total:</td>
+                            <td>$ {{ total_carrito }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <a href="{% url 'CLS' %}" class="btn btn-danger btn-block">Limpiar</a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <a href="{% url 'ecommerce' %}" class="btn btn-warning btn-block text-white">Volver</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#" class="btn btn-success btn-block">Guardar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+
+
+{%endblock%}
