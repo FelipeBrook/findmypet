@@ -44,7 +44,7 @@ const Slider = () => {
     {
       id: 5,
       imgUrl:
-        "https://e8s3v3w7.rocketcdn.me/wp-content/uploads/2017/11/chile-santiago-mit-zahlreichen-attraktionen-bietet-der-riesige-parque-metropolitano-in-santiago-de-chile-sowohl-erholung-und-entspannung-als-auch-kultur-und-unterhaltung-byvalet-shutterstoc.jpg",
+        "https://traveler.marriott.com/es/wp-content/uploads/sites/2/2018/12/GI-642414680-San_Cristobal_Cable_Car-header.jpg",
       desc: "Some beautiful moons cannot be created without getting creativity.",
       name: "PARQUE METROPOLITANO",
     },

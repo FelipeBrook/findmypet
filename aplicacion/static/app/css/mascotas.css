@@ -38,10 +38,9 @@ body {
 }
 
 .banneradoptame {
-  background-color: #ccc4c438;
-  backdrop-filter: blur(7px);
   text-align: center;
-  padding: 0px;
+
+  padding: 20px;
 }
 
 .banneradoptame h1 {
@@ -139,18 +138,54 @@ div .card .contenido-card {
   background: rgba(0, 0, 0, 0.5);
 }
 
-/* @media (max-width: 991.5px) {
-  .container {
-    margin-top: 20px;
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .container-mascotas {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px; /* Reducir el margen */
   }
 
-  .container .row .col-lg-4 {
-    margin: 20px 0px;
+  /* Otros estilos que desees modificar para dispositivos pequeños */
+  .banneradoptame h1 {
+    font-size: 40px; /* Reducir el tamaño del texto */
+    padding-top: 100px; /* Ajustar el espaciado superior */
   }
-} */
 
-/* Estilos para tamaños de pantalla pequeños (celulares) */
-@media screen and (max-width: 767px) {
+  .card {
+    margin: 10px; /* Reducir el margen */
+  }
+
+  .card .contenido-card {
+    padding: 10px; /* Reducir el relleno */
+  }
+
+  .img-card {
+    height: 320; /* Altura automática según el contenido */
+    width: 100%; /* Ocupar todo el ancho disponible */
+  }
+}
+
+.btn22 {
+  background: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.btn22:hover {
+  background: #000000;
+  color: #fff;
+}
+
+.section2_btn {
+  border-radius: 35px;
+  padding: 10px 12px;
+  width: 100%;
+  height: 52px;
+  color: #fff;
+  font-size: 16px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
   .container-mascotas {
     width: 100%; /* Ocupar todo el ancho disponible */
     max-width: 100%; /* Ancho máximo del contenedor */
@@ -161,7 +196,7 @@ div .card .contenido-card {
   /* Otros estilos que desees modificar para dispositivos pequeños */
   .banneradoptame h1 {
     font-size: 40px; /* Reducir el tamaño del texto */
-    padding-top: 50px; /* Ajustar el espaciado superior */
+    padding-top: 100px; /* Ajustar el espaciado superior */
   }
 
   .card {
@@ -176,16 +211,6 @@ div .card .contenido-card {
     height: auto; /* Altura automática según el contenido */
     width: 100%; /* Ocupar todo el ancho disponible */
   }
-}
-
-/* Estilos para tablets y dispositivos medianos */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  /* Agregar estilos específicos para tablets si es necesario */
-}
-
-/* Estilos para pantallas más grandes (computadoras de escritorio, laptops, etc.) */
-@media screen and (min-width: 1024px) {
-  /* Agregar estilos específicos para pantallas grandes si es necesario */
 }
 
 .btn22 {
