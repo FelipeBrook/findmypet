@@ -1,6 +1,5 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from django.http import HttpResponse
-from django.shortcuts import render, redirect, get_object_or_404
 import geocoder  # Importa la biblioteca para obtener la ubicación
 import qrcode
 from django.contrib import messages
@@ -15,8 +14,8 @@ from .models import Producto
 from .models import Mascota
 from .Carrito import Carrito  # Importar la clase Carrito desde carrito.py
 from django.http import HttpResponseRedirect
-
-
+from django.http import JsonResponse
+import os
 
 
 
@@ -28,77 +27,110 @@ def adoptame(request):
     }
     return render(request, "aplicacion/adoptame.html", data)
 
-def perfil_mascota(request, mascota_id):
-    mascota = Mascota.objects.get(id=mascota_id)
-    return render(request, 'aplicacion/perfil_mascota.html', {'mascota': mascota})
+# def perfil_mascota(request, mascota_id):
+#     mascota = Mascota.objects.get(id=mascota_id)
+#     return render(request, 'aplicacion/perfil_mascota.html', {'mascota': mascota})
 
 
+# def perfil_mascota(request, mascota_id):
+#     mascota = get_object_or_404(Mascota, id=mascota_id)
+
+#     # Obtiene la dirección IP del usuario
+#     usuario_ip = get_client_ip(request)
+
+#     # Configura el cliente de Google Maps con tu clave de API
+#     gmaps = googlemaps.Client(key=settings.GOOGLE_MAPS_API_KEY)
+
+#     try:
+       
+#         # Utiliza la función geolocate para obtener una ubicación precisa
+#         location = gmaps.geolocate()
+
+#         latitud = location['location']['lat']
+#         longitud = location['location']['lng']
+
+#         # Obtiene la dirección precisa a partir de las coordenadas
+#         ubicacion = gmaps.reverse_geocode((latitud, longitud))
+
+#         # Ubicación será una lista de resultados; puedes elegir el que mejor se ajuste a tus necesidades
+#         ubicacion = ubicacion[0]['formatted_address']
+
+        
+
+#     except Exception as e:
+#         ubicacion = "Ubicación desconocida"
+
+#     # Crear el código QR con la información del perfil de la mascota
+#     qr = qrcode.QRCode(
+#         version=1,
+#         error_correction=qrcode.constants.ERROR_CORRECT_L,
+#         box_size=10,
+#         border=4,
+#     )
+
+#     # Puedes ajustar la URL a tu vista de perfil de mascota
+#     # qr.add_data(f'http://127.0.0.1:8000/mascotas/{mascota_id}/')
+#     qr.add_data(f'https://6xqvsj31-8000.brs.devtunnels.ms/mascotas/{mascota_id}/')
+    
+#     qr.make(fit=True)
+
+#     # Crear una imagen del código QR
+#     img = qr.make_image(fill_color="black", back_color="white")
+
+#     # Construye el nombre de archivo con el número de la mascota
+#     nombre_archivo = f"codigo_qr_mascota_{mascota_id}.png"
+
+#     # Guardar la imagen del código QR en el servidor
+#     img.save(nombre_archivo)
+
+#     # Registra la ubicación en la base de datos
+#     mascota.ubicacion_escaneo = ubicacion  # Puedes ajustar esto según tus necesidades
+#     mascota.save()
+
+#     # Renderizar la plantilla HTML y pasar la imagen del código QR, la mascota y la ubicación
+#     return render(request, 'aplicacion/perfil_mascota.html', {'mascota': mascota, 'qr_image': img, 'ubicacion': ubicacion})
+
+
+# def get_client_ip(request):
+#     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+#     if x_forwarded_for:
+#         ip = x_forwarded_for.split(',')[0]
+#     else:
+#         ip = request.META.get('REMOTE_ADDR')
+#     return ip
 
 def perfil_mascota(request, mascota_id):
     mascota = get_object_or_404(Mascota, id=mascota_id)
 
-    # Obtiene la dirección IP del usuario
-    usuario_ip = get_client_ip(request)
-
-    # Configura el cliente de Google Maps con tu clave de API
-    gmaps = googlemaps.Client(key=settings.GOOGLE_MAPS_API_KEY)
-
-    try:
-       
-        # Utiliza la función geolocate para obtener una ubicación precisa
-        location = gmaps.geolocate()
-
-        latitud = location['location']['lat']
-        longitud = location['location']['lng']
-
-        # Obtiene la dirección precisa a partir de las coordenadas
-        ubicacion = gmaps.reverse_geocode((latitud, longitud))
-
-        # Ubicación será una lista de resultados; puedes elegir el que mejor se ajuste a tus necesidades
-        ubicacion = ubicacion[0]['formatted_address']
-    except Exception as e:
-        ubicacion = "Ubicación desconocida"
-
-    # Crear el código QR con la información del perfil de la mascota
-    qr = qrcode.QRCode(
-        version=1,
-        error_correction=qrcode.constants.ERROR_CORRECT_L,
-        box_size=10,
-        border=4,
-    )
-
-    # Puedes ajustar la URL a tu vista de perfil de mascota
-    qr.add_data(f'http://127.0.0.1:8000/mascotas/{mascota_id}/')
-    
-    qr.make(fit=True)
-
-    # Crear una imagen del código QR
-    img = qr.make_image(fill_color="black", back_color="white")
-
-    # Construye el nombre de archivo con el número de la mascota
+    # Crear el código QR
+    qr_url = f'https://6xqvsj31-8000.brs.devtunnels.ms/mascotas/{mascota_id}/'
+    # qr_url = f'http://127.0.0.1:8000/mascotas/{mascota_id}/'
+    qr = qrcode.make(qr_url)
     nombre_archivo = f"codigo_qr_mascota_{mascota_id}.png"
+    ruta_archivo = os.path.join(settings.MEDIA_ROOT, nombre_archivo)
+    qr.save(ruta_archivo)
 
-    # Guardar la imagen del código QR en el servidor
-    img.save(nombre_archivo)
+    # Si la solicitud es POST, actualiza la ubicación
+    if request.method == 'POST':
+        latitud = request.POST.get('latitud')
+        longitud = request.POST.get('longitud')
+        print(f"Latitud: {latitud}, Longitud: {longitud}")  # Solo para depuración
 
-    # Registra la ubicación en la base de datos
-    mascota.ubicacion_escaneo = ubicacion  # Puedes ajustar esto según tus necesidades
-    mascota.save()
+        # Aquí asumo que tienes los campos latitud y longitud en tu modelo Mascota
+        mascota.latitud = latitud
+        mascota.longitud = longitud
+        mascota.save()
 
-    # Renderizar la plantilla HTML y pasar la imagen del código QR, la mascota y la ubicación
-    return render(request, 'aplicacion/perfil_mascota.html', {'mascota': mascota, 'qr_image': img, 'ubicacion': ubicacion})
+        return JsonResponse({"mensaje": "Ubicación guardada con éxito"})
 
+    return render(request, 'aplicacion/perfil_mascota.html', {
+        'mascota': mascota,
+        'qr_image_url': os.path.join(settings.MEDIA_URL, nombre_archivo)
+    })
 
-def get_client_ip(request):
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]
-    else:
-        ip = request.META.get('REMOTE_ADDR')
-    return ip
-
-
-
+def lista_ubicaciones(request):
+    mascotas = Mascota.objects.all()  # Obtener todas las mascotas
+    return render(request, 'aplicacion/lista_ubicaciones.html', {'mascotas': mascotas})
 
 def home(request):
     return render(request, "aplicacion/home.html")
@@ -176,5 +208,6 @@ def limpiar_carrito(request):
     carrito = Carrito(request)
     carrito.limpiar()
     return redirect("carrito")
+
 
 

@@ -35,9 +35,11 @@
             <div class="perfil-usuario-bio">
                 <h3 class="titulo">{{mascota.nombre}}</h3>
                 <p class="texto">{{mascota.descripcion}}</p>
+                <span id="latitud-display"></span>
+                <span id="longitud-display"></span>
 
-                <!-- Agrega esto en tu plantilla HTML donde deseas mostrar la ubicación -->
-                <p>Ubicación de escaneo: <span id="ubicacion">{{ ubicacion }}</span></p>
+
+
 
 
 
@@ -89,20 +91,32 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        function mostrarCoordenadas() {
+            var contenedor = document.getElementById('listaCoordenadas');
+            contenedor.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevos elementos
 
-
-            navigator.geolocation.getCurrentPosition(function (position) {
-                console.log("Latitud: " + position.coords.latitude);
-                console.log("Longitud: " + position.coords.longitude);
-                // Resto de tu código
+            coordenadasMascota.forEach(function (coordenada, index) {
+                var elemento = document.createElement('p');
+                elemento.textContent = 'Coordenada ' + (index + 1) + ': Latitud ' + coordenada.latitud + ', Longitud ' + coordenada.longitud;
+                contenedor.appendChild(elemento);
             });
-
+        }
+        var coordenadasMascota = [];
+        document.addEventListener("DOMContentLoaded", function () {
             if ("geolocation" in navigator) {
                 navigator.geolocation.getCurrentPosition(function (position) {
                     var latitud = position.coords.latitude;
                     var longitud = position.coords.longitude;
 
+                    // // Imprime las coordenadas en la consola para depuración
+                    // console.log("Latitud: " + latitud);
+                    // console.log("Longitud: " + longitud);
+                    // Actualiza los elementos HTML con las coordenadas
+                    document.getElementById('latitud-display').textContent = "Latitud: " + latitud;
+                    document.getElementById('longitud-display').textContent = "Longitud: " + longitud;
+                    // Añade las nuevas coordenadas a la lista global
+                    coordenadasMascota.push({ latitud: latitud, longitud: longitud });
+                    mostrarCoordenadas();
                     // Genera la URL inversa para el perfil de la mascota
                     var perfilMascotaURL = "{% url 'perfil_mascota' mascota_id=mascota.id %}";
 
@@ -110,19 +124,29 @@
                     $.ajax({
                         type: "POST",
                         url: perfilMascotaURL,
-                        data: { latitud: latitud, longitud: longitud },
+                        data: {
+                            latitud: latitud,
+                            longitud: longitud,
+                            csrfmiddlewaretoken: '{{ csrf_token }}'  // Asegúrate de incluir el token CSRF
+                        },
                         success: function (response) {
-                            console.log("Ubicación del servidor: " + response.ubicacion);
-                            document.getElementById("ubicacion").textContent = "Ubicación: " + response.ubicacion;
+                            console.log("Ubicación guardada en el servidor.");
+                        },
+                        error: function (error) {
+                            console.error("Error al enviar la ubicación: ", error);
                         }
                     });
-
+                }, function (error) {
+                    // Manejar el error de geolocalización aquí
+                    console.warn("Error al obtener la ubicación: ", error);
                 });
             }
         });
+
+
     </script>
 
-
+    <div id="listaCoordenadas"></div>
 </body>
 
 

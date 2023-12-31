@@ -17,21 +17,21 @@ const Slider = () => {
       id: 1,
       imgUrl:
         "https://upload.wikimedia.org/wikipedia/commons/5/55/Parque_Bicentenario%2C_Vitacura%2C_Santiago_20200314_02.jpg",
-      desc: "Some beautiful moons cannot be created without getting creativity.",
+      desc: "",
       name: "PARQUE BICENTENARIO",
     },
     {
       id: 2,
       imgUrl:
         "https://upload.wikimedia.org/wikipedia/commons/b/ba/Parque_Araucano_16.jpg",
-      desc: "Some beautiful moons cannot be created without getting creativity.",
+      desc: "El Parque Araucano, ubicado en la comuna de Las Condes en Santiago de Chile, es un excelente lugar para pasear con tu perro. Con sus 22 hectáreas aproximadamente, el parque ofrece amplias áreas verdes y una variedad de actividades que puedes disfrutar en familia o individualmente",
       name: "PARQUE ARAUCANO",
     },
     {
       id: 3,
       imgUrl:
         "https://media-front.elmostrador.cl/2020/08/A_UNO_1207849-scaled-1.jpg",
-      desc: "Some beautiful moons cannot be created without getting creativity.",
+      desc: ".",
       name: "PARQUE OHIGGINS",
     },
     {
@@ -98,7 +98,7 @@ const Slider = () => {
     des.textContent = item.desc;
 
     const button = document.createElement("button");
-    button.textContent = "See more";
+    button.textContent = "Ver más";
 
     content.appendChild(name);
     content.appendChild(des);

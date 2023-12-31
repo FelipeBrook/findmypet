@@ -6,6 +6,7 @@ geopy
 qrcode[pil]
 -U googlemaps
 django-allauth
+geopy django-geoposition
 
 asgiref==3.7.2
 beautifulsoup4==4.12.2

@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+
 class Raza(models.Model):
     nombre = models.CharField(max_length=50, null=True)
 
@@ -30,6 +31,8 @@ class Mascota(models.Model):
     imagen3= models.ImageField(upload_to="mascotas", null=True)
     imagen4 = models.ImageField(upload_to="mascotas", null=True)
     imagen5 = models.ImageField(upload_to="mascotas", null=True)
+    latitud = models.FloatField(null=True, blank=True)
+    longitud = models.FloatField(null=True, blank=True)
     descripcion = models.TextField()
 
     def __str__(self):
@@ -41,7 +44,7 @@ class Marca(models.Model):
 
     def __str__(self):
         return self.nombre
-    
+
 
 # CARRITO DE COMPRAS
 class Cliente(models.Model):
@@ -61,6 +64,5 @@ class Producto(models.Model):
      
     def __str__(self):
         return self.nombre
-
 
 

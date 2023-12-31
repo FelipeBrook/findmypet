@@ -23,7 +23,7 @@ urlpatterns =[
     path('restar/<int:producto_id>/', restar_producto, name="Sub"),
     path('limpiar/', limpiar_carrito, name="limpiar"),
     path('carrito/', carrito, name='carrito'),
-    
-
-   
+     path('ubicaciones/', views.lista_ubicaciones, name='lista_ubicaciones')
+     
 ]
+   
